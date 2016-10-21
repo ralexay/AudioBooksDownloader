@@ -8,5 +8,5 @@ setup(
     license='',
     author='ralexay',
     author_email='',
-    description='', requires=['bs4', 'requests', 'demjson']
+    description='', install_requires=['beautifulsoup4', 'requests', 'demjson']
 )

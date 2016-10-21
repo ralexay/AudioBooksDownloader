@@ -19,8 +19,8 @@ class BookDownloader(object):
     def _get_html_soup(self):
         import book_utils
         html = book_utils.BookUtils.get_url(self.book_url)
-        soup = BeautifulSoup(html)
-        return (soup,html)
+        soup = BeautifulSoup(html, "html.parser")
+        return (soup, html)
 
     def make_valid_url(self, url):
         url = url.replace(" ", "%20")
