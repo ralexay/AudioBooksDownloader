@@ -8,7 +8,7 @@ supported sites:
 **************************
 http://a-booka.ru/
 http://www.audioknigi-online.com/
-http://audioknigi.club/
+https://audioknigi.club/
 **************************
 """
 import sys

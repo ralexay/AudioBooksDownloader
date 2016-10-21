@@ -1,4 +1,6 @@
-from .book_downloader import BookDownloader
+# coding: utf-8
+
+from book_downloader import BookDownloader
 
 
 class MP3TalesInfo(BookDownloader):
@@ -11,12 +13,11 @@ class MP3TalesInfo(BookDownloader):
         tmp = h1.text
         self.book_title = tmp
 
-
     def get_files_list(self):
         (soup, html) = self._get_html_soup()
         self._get_book_title(soup)
 
-        a = soup.find('span', {'class': 'mini'}).find("a")
+        a = soup.find('a', {'title': 'Скачать'})
         file_url = "http://%s%s" % (self.self_net_loc, a.attrs['href'])
         self.files_for_download.append(file_url)
 
@@ -24,4 +25,4 @@ class MP3TalesInfo(BookDownloader):
         img = soup.find('img', {'class': 'saturate'})
         file_url = "http://%s%s" % (self.self_net_loc, img.attrs['src'])
         self.files_for_download.append(file_url)
-        print file_url
+        # print file_url
