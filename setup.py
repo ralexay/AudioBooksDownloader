@@ -8,5 +8,5 @@ setup(
     license='',
     author='ralexay',
     author_email='',
-    description='', requires=['bs4', 'requests']
+    description='', requires=['bs4', 'requests', 'demjson']
 )
