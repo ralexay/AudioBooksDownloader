@@ -7,5 +7,6 @@ if __name__ == "__main__":
     ts.addTest(FetchFilesListTest("test_audioknigi_club"))
     ts.addTest(FetchFilesListTest("test_audioknigi_online_com"))
     ts.addTest(FetchFilesListTest("test_mp3tales_info"))
+    ts.addTest(FetchFilesListTest("test_abook_fm"))
 
     runner.run(ts)
