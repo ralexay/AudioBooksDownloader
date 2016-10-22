@@ -28,3 +28,11 @@ class FetchFilesListTest(unittest.TestCase):
 
         book.get_files_list()
         self.assertTrue(len(book.files_for_download) > 0, "no files found for download")
+        
+    def test_abook_fm(self):    
+        from AudioBooksDownloader.models.book_utils import BookUtils
+        book = BookUtils.get_book_downloader('http://abook.fm/book/%D0%9D%D0%B0%20%D0%B4%D0%B5%D1%81%D1%8F%D1%82%D0%BE%D0%BC%20%D0%BD%D0%B5%D0%B1%D0%B5')
+        self.assertIsNotNone(book, "Book downloader not found")
+
+        book.get_files_list()
+        self.assertTrue(len(book.files_for_download) > 0, "no files found for download")
