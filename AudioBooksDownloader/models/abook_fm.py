@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import json
 import re
 import book_utils
@@ -11,7 +13,7 @@ class AbookFM(BookDownloader):
 
     def _get_book_title(self, soup):
         h1 = soup.find('div', {'class': 'page-header'}).find("h1")
-        tmp = h1.text.decode('utf-8', "ignore").splitlines()
+        tmp = h1.text.splitlines()
         self.book_title = ' '.join(tmp)
         self.book_title = book_utils.BookUtils.validate_utf8(self.book_title.strip(' \t\n\r'))
 

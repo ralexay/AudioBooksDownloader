@@ -18,21 +18,22 @@ class AudioknigiClub(BookDownloader):
         scripts = soup.find_all("script")
         for script in scripts:
             if str(script).find(".audioPlayer(") > 0:
-                s = unicode(str(script), 'utf-8')
+                # s = unicode(str(script), 'utf-8')
+                s = str(script)
                 arr = re.findall("([\d+]{2,})", s, flags=re.UNICODE | re.IGNORECASE)
-                json_file = book_utils.BookUtils.get_url("http://audioknigi.club/rest/bid/" + arr[0]).replace("\/","/")
+                json_file = book_utils.BookUtils.get_url("http://audioknigi.club/rest/bid/" + arr[0]).replace("\/", "/")
 
                 # import HTMLParser
                 # h = HTMLParser.HTMLParser()
                 # json_file = h.unescape(json_file)
 
                 s = unicode(str(json_file), 'utf-8')
-                #pattern = '([mp3:\"?]http:\/\/[\w\s\.\/\-\,\(\)]*\"?.mp3)'
+                # pattern = '([mp3:\"?]http:\/\/[\w\s\.\/\-\,\(\)]*\"?.mp3)'
                 pattern = '(https:\/\/[\w\s\.\/\-\,\(\)]*\"?.mp3)'
                 array = re.findall(pattern, s, flags=re.UNICODE | re.IGNORECASE)
                 for item in array:
                     # item = self.make_valid_url(item)
                     item = item.strip('"')
-                    #self.files_for_download.append(item.replace("\"",""))
+                    # self.files_for_download.append(item.replace("\"",""))
                     self.files_for_download.append(item)
                     # print item

@@ -1,10 +1,7 @@
 import unittest
 from tests.fetch_files_list import FetchFilesListTest
-import sys
 
 if __name__ == "__main__":
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
     runner = unittest.TextTestRunner()
     ts = unittest.TestSuite()
     ts.addTest(FetchFilesListTest("test_audioknigi_club"))
