@@ -37,15 +37,15 @@ class BooksDownloader(object):
 
     @staticmethod
     def main(argv):
-
+        output_dir = "tmp"
         try:
-            opts, args = getopt.getopt(argv, 'h:ou:')
+            opts, args = getopt.getopt(argv, 'u:o')
         except getopt.GetoptError:
             print "No url specified. exiting with error"
+            print "usage: download_book.py -u <download_url> -o <output_dir>"
             sys.exit(2)
 
         url = None
-        output_dir = None
         for opt, arg in opts:
             if opt == "-h":
                 print "usage: download_book.py -u <download_url> -o <output_dir>"
